@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic toe game board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="drag">
+            <div class="dragbox" >
+                <div class="circle" id="circle1" draggable="true" ondragstart="Drag(event)"></div>
+            </div>
+            <div class="dragbox" >
+                <div class="circle" id="circle2" draggable="true" ondragstart="Drag(event)"></div>
+            </div>
+            <div class="dragbox" >
+                <div class="circle" id="circle3" draggable="true" ondragstart="Drag(event)"></div>
+            </div>
+            <div class="dragbox">
+                <div class="circle" id="circle4"  draggable="true" ondragstart="Drag(event)"></div>
+            </div>
+            <div class="dragbox" >
+                <div class="circle" id="circle5" draggable="true" ondragstart="Drag(event)"></div>
+            </div>
+        </div>
+    <!----drop section-->
+
+    <div class="board">
+        <div class="dropbox" ondrop = 'Drop(event)' ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop = 'Drop(event)' ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop = 'Drop(event)' ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop = 'Drop(event)' ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop = 'Drop(event)' ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop = 'Drop(event)' ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop = 'Drop(event)' ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop = 'Drop(event)' ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop = 'Drop(event)' ondragover="allowDrop(event)"></div>
+    </div>
+        <!--cross design-->
+
+        <div class="drag">
+            <div class="dragbox" >
+                <div class="cross" id="cross1" draggable="true" ondragstart="Drag(event)"></div>
+            </div>
+            <div class="dragbox" >
+                <div class="cross" id="cross2" draggable="true" ondragstart="Drag(event)"></div>
+            </div>
+            <div class="dragbox" >
+                <div class="cross" id="cross3" draggable="true" ondragstart="Drag(event)"></div>
+            </div>
+            <div class="dragbox" >
+                <div class="cross" id="cross4" draggable="true" ondragstart="Drag(event)"></div>
+            </div>
+            <div class="dragbox" >
+                <div class="cross" id="cross5" draggable="true" ondragstart="Drag(event)"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const allowDrop=(event)=>{
+          event.preventDefault();
+        }
+   function Drag(event){
+    event.dataTransfer.setData('text',event.target.id);
+  
+    
+   }
+  function Drop(event){
+    event.preventDefault();
+    var data= event.dataTransfer.getData('text');
+    event.target.appendChild(document.getElementById(data));
+    console.log(data);
+  }
+     
+    </script>
+</body>
+</html>
